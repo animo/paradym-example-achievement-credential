@@ -1,0 +1,33 @@
+name: Issue High Score Badge
+
+trigger:
+  type: api
+
+input:
+  type: "object"
+  properties:
+    highscore:
+      title: Highscore
+      description: Your highscore
+      type: string
+    timestamp:
+      title: Timestamp
+      description: Date and time of when the highscore was achieved
+      type: string
+  required:
+    - highscore
+    - timestamp
+
+actions:
+  - id: createConnection
+    name: didcomm/createConnection@v1
+
+  - id: issueCredential
+    name: didcomm/issueCredential@v1
+    attributes:
+      connectionId: $.actions.createConnection.output.connection.connectionId
+      anoncreds:
+        credentialDefinitionId: <YOUR_CREDENTIAL_DEFINITION_ID>
+        attributes:
+          highscore: $.input.highscore
+          timestamp: $.input.timestamp

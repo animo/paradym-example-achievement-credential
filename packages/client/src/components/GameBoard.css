@@ -1,0 +1,66 @@
+
+html {
+  background: linear-gradient(0.25turn, #93F5EC, #635CFF, #A77BF3);
+}
+
+.game-board {
+  flex-wrap: wrap;
+  margin: auto;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+  z-index: 1;
+}
+
+#game-board-title {
+  justify-content: center;
+  align-content: center;
+  font-family: "Inter";
+  font-variant: normal;
+  font-weight: bold;
+  font-size: xxx-large;
+  text-align: center;
+  color: aliceblue;
+}
+
+.game-container {
+  height: 50%;
+  width: 50%;
+  justify-content: center;
+}
+
+
+.canvas-pane {
+  border-radius: 20px;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.scoreboard-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* position: fixed; */
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  padding-bottom: 128px;
+}
+
+.scoreboard-live, .highscore-live {
+  flex: 0.2;
+  color: white;
+  margin-left: 10px;
+  /* margin: 20%; */
+
+  background-color: rgba(0, 0, 0, .2);
+  padding: 10px;
+  text-align: center;
+}

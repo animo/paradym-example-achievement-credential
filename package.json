@@ -1,0 +1,15 @@
+{
+  "name": "paradym-snake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm recursive run dev --filter=packages/{frontend,backend}",
+    "client": "pnpm run --dir=packages/client dev",
+    "server": "pnpm run --dir=packages/server dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
