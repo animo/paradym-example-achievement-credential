@@ -13,7 +13,7 @@ This demo contains two packages: `client` and `server`. Both of these are locate
 
 ## Before you begin
 
-> Check out the [TODO YouTube video]() for a complete walkthrough of the demo application and its workflows.
+> Check out the [YouTube video](https://www.youtube.com/watch?v=l_f6be1V-BU) for a complete walkthrough of the demo application and its workflows.
 
 This demo uses [Paradym](https://paradym.id), a workflow builder for developers that provides the actions, workflows and infrastructure you need to use verifiable credentials in your solution.
 
