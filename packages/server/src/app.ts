@@ -1,4 +1,3 @@
-import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 import { setupHighscoreEndpoint } from "./endpoints/highscoreGet";
@@ -10,7 +9,7 @@ const app = express();
 app.use(cors());
 
 app.use(
-  bodyParser.json({
+  express.json({
     verify: (req, res, buf) => {
       req.rawBody = buf.toString();
     },

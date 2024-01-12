@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {
+import {
   useState,
   useRef,
   useEffect,
@@ -10,7 +10,7 @@ import React, {
 import { fetchHighScoreFromAPI, postScoreToAPI } from "../api";
 import "./GameBoard.css";
 import { GameOverOverlay } from "./GameOverOverlay";
-import {Snake } from './Snake'
+
 export const GameBoard = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -20,7 +20,6 @@ export const GameBoard = () => {
   }>({ highscore: 0, currentScore: 0 });
 
   const [gameOver, setGameOver] = useState(false);
-  // const [snake, setSnake] = useState<{ top: number; left: number }[]>([]);
   const [snake, setSnake] = useState<Snake>();
 
   const [food, setFood] = useState<{ top: number; left: number }>();
@@ -86,7 +85,8 @@ export const GameBoard = () => {
     const canvasWidth = canvasRef.current.width;
 
     // Update the snake's position
-    setSnake((prevSnake: Snake) => {
+    setSnake((prevSnake: Snake | undefined) => {
+      if (!prevSnake) return prevSnake;
       const newSnake = calculateNewSnakePosition(
         prevSnake,
         direction,
@@ -141,7 +141,7 @@ export const GameBoard = () => {
   };
 
   useEffect(() => {
-    if (food && checkFoodCollision(snake)) {
+    if (food && checkFoodCollision(snake ?? [])) {
       // setScore(score + 1);
       setScoreBoard({
         ...scoreBoard,
@@ -221,7 +221,7 @@ export const GameBoard = () => {
         ctx.fillStyle = "rgba(255, 255, 255, 0.2)";
         ctx.fillRect(0, 0, currentRef.width, currentRef.height);
         ctx.fillStyle = "green";
-        snake.forEach((segment) => {
+        snake?.forEach((segment) => {
           ctx.fillRect(segment.left, segment.top, 10, 10);
         });
         ctx.fillStyle = "red";
