@@ -41,7 +41,7 @@ The demo app requires 2 workflows. All workflows used for this demo application 
 
 #### Step 2: Create the issue high score badge workflow
 
-Next, you need to create the _Issue High Score Badge_ workflow.
+Next, you need to create the *Issue High Score Badge* workflow.
 
 - Create new workflow in the Paradym dashboard
 - Copy the contents of the `paradym/issueHighScoreBadge.yaml` file
