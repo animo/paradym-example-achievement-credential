@@ -5,9 +5,12 @@ dotenv.config();
 
 const API_KEY = process.env.PARADYM_API_KEY;
 const WORKFLOW_ID = process.env.PARADYM_WORKFLOW_ID;
+const PROJECT_ID = process.env.PARADYM_PROJECT_ID;
+
+const BASE_URL = `https://api.paradym.id/v1/projects/${PROJECT_ID}`;
 
 export async function getWorkflowExecutionById(workflowExecutionId: string) {
-  const url = `https://api.paradym.id/v1/executions/${workflowExecutionId}`;
+  const url = `${BASE_URL}/executions/${workflowExecutionId}`;
   const headers = {
     "x-access-token": API_KEY,
     "Content-Type": "application/json",
@@ -18,7 +21,7 @@ export async function getWorkflowExecutionById(workflowExecutionId: string) {
 }
 
 export async function issueCredential(highscore: number, timestamp: string) {
-  const url = "https://api.paradym.id/v1/executions";
+  const url = `{${BASE_URL}/executions`;
   const headers = {
     "x-access-token": API_KEY,
     "Content-Type": "application/json",
